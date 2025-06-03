@@ -52,20 +52,27 @@ The objective of this POC is to integrate **OWASP ZAP**, an open-source DAST too
 | 📄 **Uploads Report**       | Stores `zap_report.html` so you can download it from the Actions tab. |
 
 
-### 2. Push the changes and check the DAST report
+### 2. Push the Changes and Check the DAST Report
 
-![Code commit](images/push_commit.png)
+![Code Commit](images/push_commit.png)
 
+---
 
-### 3. ✅View Scan Results
+### 3. ✅ View Scan Results
 
-#### - Scan got succeeded and generated report was uploaded to Artifact
+#### - The scan succeeded, and the generated report was uploaded as an artifact.
 
 ![DAST Scan](images/DAST_Scan.png)
-
 
 ![DAST Scan Logs](images/Scan_logs.png)
 
 ![ZAP Scan Report](images/ZAP_Report.png)
 
+---
+
+### 📄 Artifact Download URL
+
+You can download the report from the following URL:
+
+[Artifact Download - zap_report.html](https://github.com/vijayjirange/juice-shop/actions/runs/15416861555/artifacts/3249566064)
 
