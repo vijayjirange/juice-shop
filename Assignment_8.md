@@ -37,11 +37,11 @@ The objective of this POC is to integrate **OWASP ZAP**, an open-source DAST too
 ![Juice Shop started Locally](images/juice_shop_UI.png)
 
 
-### 2. Create GitHub Actions Workflow
+### 2. Create GitHub Actions Workflow 
 
 - Create a GitHub Actions workflow under `.github/workflows/` with the name `zap-dast.yml`.
 
-![GitHub Action workflow](images/github_Action_workflow.png)
+![GitHub Action workflow](images/workflow_yml.png)
 
 ### 📝 What This Workflow Does
 
@@ -50,3 +50,22 @@ The objective of this POC is to integrate **OWASP ZAP**, an open-source DAST too
 | ✅ **docker run Juice Shop** | Runs the vulnerable app locally in CI.                |
 | 🔍 **ZAP Scan**             | Scans the app on `http://localhost:3000` using OWASP ZAP. |
 | 📄 **Uploads Report**       | Stores `zap_report.html` so you can download it from the Actions tab. |
+
+
+### 2. Push the changes and check the DAST report
+
+![Code commit](images/push_commit.png)
+
+
+### 3. ✅View Scan Results
+
+#### - Scan got succeeded and generated report was uploaded to Artifact
+
+![DAST Scan](images/DAST_Scan.png)
+
+
+![DAST Scan Logs](images/Scan_logs.png)
+
+![ZAP Scan Report](images/ZAP_Report.png)
+
+
