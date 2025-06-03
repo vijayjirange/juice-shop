@@ -1,0 +1,32 @@
+name: ZAP DAST Scan
+
+on:
+  push:
+    branches: [ master]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout your repo
+        uses: actions/checkout@v3
+
+      - name: Start Juice Shop locally with Docker
+        run: |
+          docker run -d -p 3000:3000 bkimminich/juice-shop
+          sleep 30 # give time for app to boot
+
+      - name: Run OWASP ZAP Baseline Scan
+        run: |
+          docker run --network host -v ${{ github.workspace }}:/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py \
+            -t http://localhost:3000 \
+            -r zap_report.html
+
+      - name: Upload ZAP Report as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-report
+          path: zap_report.html
